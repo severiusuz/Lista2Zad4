@@ -1,0 +1,9 @@
+D:\33InfA\Pieniazek\Lista2\Zad4\Zad4\bin\Debug\Zad4.exe.config
+D:\33InfA\Pieniazek\Lista2\Zad4\Zad4\bin\Debug\Zad4.exe
+D:\33InfA\Pieniazek\Lista2\Zad4\Zad4\bin\Debug\Zad4.pdb
+D:\33InfA\Pieniazek\Lista2\Zad4\Zad4\obj\Debug\Zad4.csprojResolveAssemblyReference.cache
+D:\33InfA\Pieniazek\Lista2\Zad4\Zad4\obj\Debug\Zad4.Form1.resources
+D:\33InfA\Pieniazek\Lista2\Zad4\Zad4\obj\Debug\Zad4.Properties.Resources.resources
+D:\33InfA\Pieniazek\Lista2\Zad4\Zad4\obj\Debug\Zad4.csproj.GenerateResource.Cache
+D:\33InfA\Pieniazek\Lista2\Zad4\Zad4\obj\Debug\Zad4.exe
+D:\33InfA\Pieniazek\Lista2\Zad4\Zad4\obj\Debug\Zad4.pdb
