@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,24 +14,31 @@ namespace Zad4
 {
     public partial class Form1 : Form
     {
+        private FileManager _fileManager;
+        private const string FileName = "zad4.txt";
+
         public Form1()
         {
             InitializeComponent();
+            _fileManager = new FileManager();
         }
 
         private void stworzButton_Click(object sender, EventArgs e)
         {
+            var name = nameTextBox.Text.ToString();
+            var surname = surnameTextBox.Text.ToString();
+            var phoneNumber = phoneNumberTextBox.Text.ToString();
+            var address = addressTextBox.Text.ToString();
 
-            String name = nameTextBox.Text.ToString();
-            String surname = surnameTextBox.Text.ToString();
-            String phoneNumber = phoneNumberTextBox.Text.ToString();
-            String address = addressTextBox.Text.ToString();
-            if (name.Equals("") || surname.Equals("") || phoneNumber.Equals("") || address.Equals(""))
+            if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(surname)
+                || string.IsNullOrEmpty(phoneNumber) || string.IsNullOrEmpty(address))
             {
-                MessageBox.Show("Nie dawaj szczyszczonych danych","Szczyszczone Dane WARNING!");
-            } else
+                MessageBox.Show("Nie dawaj szczyszczonych danych", "Szczyszczone Dane WARNING!",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
             {
-                PersonalData person = new PersonalData(address, phoneNumber, name, surname);
+                var person = new PersonalData(address, phoneNumber, name, surname);
                 personListBox.Items.Add(person);
                 szczyscNaAmen();
             }
@@ -55,10 +63,10 @@ namespace Zad4
             if (selectedIndex >= 0)
             {
                 PersonalData ps = (PersonalData)personListBox.SelectedItem;
-                ps.name = nameTextBox.Text;
-                ps.surname = surnameTextBox.Text;
-                ps.address = addressTextBox.Text;
-                ps.phoneNumber = phoneNumberTextBox.Text;
+                ps.Name = nameTextBox.Text;
+                ps.Surname = surnameTextBox.Text;
+                ps.Address = addressTextBox.Text;
+                ps.PhoneNumber = phoneNumberTextBox.Text;
                 personListBox.Items[selectedIndex] = ps;
             }
         }
@@ -67,12 +75,13 @@ namespace Zad4
         {
 
             int selectedIndex = personListBox.SelectedIndex;
-            if (selectedIndex >= 0) { 
+            if (selectedIndex >= 0)
+            {
                 PersonalData ps = (PersonalData)personListBox.SelectedItem;
-                nameTextBox.Text = ps.name;
-                surnameTextBox.Text = ps.surname;
-                phoneNumberTextBox.Text = ps.phoneNumber;
-                addressTextBox.Text = ps.address;
+                nameTextBox.Text = ps.Name;
+                surnameTextBox.Text = ps.Surname;
+                phoneNumberTextBox.Text = ps.PhoneNumber;
+                addressTextBox.Text = ps.Address;
             }
         }
 
@@ -84,6 +93,20 @@ namespace Zad4
                 personListBox.Items.RemoveAt(selectedIndex);
                 szczyscNaAmen();
             }
+        }
+
+        private void Save_MouseClick(object sender, MouseEventArgs e)
+        {
+            var list = new List<PersonalData>();
+            foreach (var person in personListBox.Items)
+                list.Add((PersonalData)person);
+
+            _fileManager.SaveToFile(list, FileName);
+        }
+
+        private void Load_MouseClick(object sender, MouseEventArgs e)
+        {
+            personListBox.DataSource = _fileManager.LoadFromFile(FileName);
         }
     }
 }

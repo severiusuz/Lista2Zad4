@@ -41,6 +41,8 @@
             this.phoneNumberLabel = new System.Windows.Forms.Label();
             this.addressLabel = new System.Windows.Forms.Label();
             this.spreparujButton = new System.Windows.Forms.Button();
+            this.Save = new System.Windows.Forms.Button();
+            this.Load = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // personListBox
@@ -48,7 +50,7 @@
             this.personListBox.FormattingEnabled = true;
             this.personListBox.Location = new System.Drawing.Point(12, 12);
             this.personListBox.Name = "personListBox";
-            this.personListBox.Size = new System.Drawing.Size(142, 199);
+            this.personListBox.Size = new System.Drawing.Size(142, 173);
             this.personListBox.TabIndex = 0;
             this.personListBox.SelectedIndexChanged += new System.EventHandler(this.personListBox_SelectedIndexChanged);
             // 
@@ -156,11 +158,33 @@
             this.spreparujButton.UseVisualStyleBackColor = true;
             this.spreparujButton.Click += new System.EventHandler(this.spreparujButton_Click);
             // 
+            // Save
+            // 
+            this.Save.Location = new System.Drawing.Point(12, 188);
+            this.Save.Name = "Save";
+            this.Save.Size = new System.Drawing.Size(70, 23);
+            this.Save.TabIndex = 13;
+            this.Save.Text = "Save";
+            this.Save.UseVisualStyleBackColor = true;
+            this.Save.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Save_MouseClick);
+            // 
+            // Load
+            // 
+            this.Load.Location = new System.Drawing.Point(84, 188);
+            this.Load.Name = "Load";
+            this.Load.Size = new System.Drawing.Size(70, 23);
+            this.Load.TabIndex = 14;
+            this.Load.Text = "Load";
+            this.Load.UseVisualStyleBackColor = true;
+            this.Load.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Load_MouseClick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(493, 226);
+            this.Controls.Add(this.Load);
+            this.Controls.Add(this.Save);
             this.Controls.Add(this.addressLabel);
             this.Controls.Add(this.phoneNumberLabel);
             this.Controls.Add(this.surnameLabel);
@@ -196,6 +220,8 @@
         private System.Windows.Forms.Label phoneNumberLabel;
         private System.Windows.Forms.Label addressLabel;
         private System.Windows.Forms.Button spreparujButton;
+        private System.Windows.Forms.Button Save;
+        private System.Windows.Forms.Button Load;
     }
 }
 
